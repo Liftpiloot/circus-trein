@@ -1,9 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-// Define constants
-
 using CircusTrein;
 
+// Define constants
 int pointsPerWagon = 10;
 
 // Create a fake list of animals
@@ -17,6 +16,9 @@ AddAnimal("Tiger", Animal.Size.Large, Animal.Diet.Carnivore); // Tiger
 AddAnimal("Rabbit", Animal.Size.Small, Animal.Diet.Herbivore); // Rabbit
 AddAnimal("Pig", Animal.Size.Medium, Animal.Diet.Herbivore); // Pig
 AddAnimal("Cow", Animal.Size.Large, Animal.Diet.Herbivore); // Cow
+AddAnimal("Horse", Animal.Size.Large, Animal.Diet.Herbivore); // Horse
+AddAnimal("Guinea Pig", Animal.Size.Small, Animal.Diet.Herbivore); // Guinea Pig
+AddAnimal("Goose", Animal.Size.Small, Animal.Diet.Herbivore); // Goose
 
 
 // Get the animals from the user
@@ -36,7 +38,7 @@ wagons.Add(new List<Animal>());
 // Put the animals in the wagons
 PutAnimmalsInWagons(animals, wagons, pointsPerWagon);
 
-printWagons(wagons);
+PrintWagons(wagons);
 
 
 List<Animal> GetAnimals()
@@ -103,7 +105,7 @@ void PutAnimmalsInWagons(List<Animal> list, List<List<Animal>> wagons1, int poin
             {
                 continue; // Skip this wagon
             }
-
+            // Check if the animal fits in the wagon
             if (wagon.Sum(a => (int)a.AnimalSize) + (int)animal.AnimalSize <= pointsPerWagon1)
             {
                 wagon.Add(animal);
@@ -121,7 +123,7 @@ void PutAnimmalsInWagons(List<Animal> list, List<List<Animal>> wagons1, int poin
     }
 }
 
-void printWagons(List<List<Animal>> list1)
+void PrintWagons(List<List<Animal>> list1)
 {
     // print the wagons
     Console.WriteLine("Number of wagons needed: " + list1.Count);
