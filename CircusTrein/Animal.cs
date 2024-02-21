@@ -2,7 +2,7 @@
 
 public class Animal
 {
-    
+    public string Name { get; set; }
     public Size AnimalSize { get; set; }
     public Diet AnimalDiet { get; set; }
     
